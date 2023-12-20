@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:further_app_clone/screens/Sign_in_screen.dart';
 import 'package:further_app_clone/screens/TopicsScreen.dart';
 
-
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

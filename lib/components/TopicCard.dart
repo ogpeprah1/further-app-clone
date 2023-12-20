@@ -22,7 +22,7 @@ class TopicCard extends StatelessWidget {
         ),
         // Blurred Container
         Container(
-          alignment: Alignment.centerLeft,
+          alignment: Alignment.topLeft,
           padding: EdgeInsets.all(10),
           height: 70.0,
           width: MediaQuery.sizeOf(context).width * 0.7,
@@ -35,8 +35,8 @@ class TopicCard extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
                 color: Colors.white),
           ),
         ),

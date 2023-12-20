@@ -14,6 +14,9 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _passwordController = TextEditingController();
   bool _obscureText = true;
+
+  final TextEditingController _emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +46,7 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 50,
             ),
             TextField(
+              controller: _emailController,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
                 prefixIconColor: Colors.grey,
@@ -114,6 +118,8 @@ class _SignInScreenState extends State<SignInScreen> {
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomeScreen()));
+                print(
+                    "Email: ${_emailController.text} Password: ${_passwordController.text}");
               },
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(MediaQuery.sizeOf(context).width, 50),

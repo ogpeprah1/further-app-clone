@@ -1,21 +1,23 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:further_app_clone/components/bottomNav.dart';
 
 import '../components/TopicCard.dart';
 
 class DiscoverScreen extends StatelessWidget {
+  const DiscoverScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(14.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             Text(
               'Discover',
-              style: TextStyle(fontSize: 40),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 20,
@@ -94,10 +96,16 @@ class DiscoverScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     // Topic 1
-                    TopicCard(imagePath: 'assets/topic1.jpg', title: 'Topic 1'),
+                    TopicCard(
+                      imagePath: 'assets/topic1.jpg',
+                      title: 'Topic 1',
+                    ),
                     SizedBox(width: 16.0),
                     // Topic 2
-                    TopicCard(imagePath: 'assets/topic2.jpg', title: 'Topic 2'),
+                    TopicCard(
+                      imagePath: 'assets/topic2.jpg',
+                      title: 'Topic 2',
+                    ),
                     // Add more TopicCard widgets as needed
                   ],
                 ),
@@ -107,12 +115,22 @@ class DiscoverScreen extends StatelessWidget {
               height: 20,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Natural Language Processing',
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.7,
+                  child: Text(
+                    'Natural Language Processing',
+                    style:
+                        TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                  ),
                 ),
-                TextButton(onPressed: () {}, child: Text("see all"))
+                TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "See all",
+                      style: TextStyle(color: Colors.grey, fontSize: 20),
+                    ))
               ],
             ),
             SizedBox(height: 16.0),
@@ -125,10 +143,16 @@ class DiscoverScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     // Topic 1
-                    TopicCard(imagePath: 'assets/topic1.jpg', title: 'Topic 1'),
+                    TopicCard(
+                      imagePath: 'assets/topic1.jpg',
+                      title: 'Topic 1',
+                    ),
                     SizedBox(width: 16.0),
                     // Topic 2
-                    TopicCard(imagePath: 'assets/topic2.jpg', title: 'Topic 2'),
+                    TopicCard(
+                      imagePath: 'assets/topic2.jpg',
+                      title: 'Topic 2',
+                    ),
                     // Add more TopicCard widgets as needed
                   ],
                 ),
@@ -137,6 +161,7 @@ class DiscoverScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }

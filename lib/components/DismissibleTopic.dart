@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:math';
 
@@ -11,6 +11,111 @@ class DismissibleTopic extends StatelessWidget {
   final VoidCallback onTopicDismissed;
 
   DismissibleTopic({required this.topic, required this.onTopicDismissed});
+
+  void _showPanel(BuildContext context) {
+    showModalBottomSheet(
+      backgroundColor: Color.fromARGB(255, 26, 30, 28),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Column(
+            children: [
+              ListTile(
+                leading: Icon(
+                  Icons.add_circle_outline,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Add to list',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.bookmark_outline,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Add to bookmark',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.not_interested,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Mark as irrelevant',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.visibility_off,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Hide content from this source',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.report,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Report',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.share,
+                  size: 30,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Share',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onTap: () {
+                  // Handle item 1 tap
+                },
+              ),
+              // Add more list tiles as needed
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,13 +246,13 @@ class DismissibleTopic extends StatelessWidget {
                                       SizedBox(
                                         width: 10,
                                       ),
-                                      Icon(Icons.crop_free_rounded)
+                                      Icon(Icons.check_circle_rounded)
                                     ],
                                   ))
                           ],
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 10,
                         ),
                         // Heading Text
                         Text(
@@ -165,11 +270,16 @@ class DismissibleTopic extends StatelessWidget {
                         ),
                         // Three Dotted Menu Icon
                         SizedBox(
-                          height: 40,
+                          height: 10,
                         ),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: Icon(Icons.more_horiz, size: 30.0),
+                          child: IconButton(
+                            onPressed: () {
+                              _showPanel(context);
+                            },
+                            icon: Icon(Icons.more_horiz, size: 30.0),
+                          ),
                         ),
                       ],
                     ),

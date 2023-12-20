@@ -58,7 +58,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Column(
         children: <Widget>[
           Padding(
@@ -81,14 +80,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(
                       Icons.directions_car,
                       size: 24.0,
+                      color: Colors.white,
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          if (!isUserSignedUp)
-            Container(
+          Visibility(
+            visible: !isUserSignedUp,
+            replacement: Container(),
+            child: Container(
+              alignment: Alignment.center,
               padding: EdgeInsets.all(20.0),
               color: Colors.green,
               child: Column(
@@ -109,7 +112,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-            ),
+            ), // This is what will be shown when isUserSignedUp is true
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: Column(

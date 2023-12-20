@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:further_app_clone/screens/DiscoverScreen.dart';
 import 'package:further_app_clone/screens/HomeScreen.dart';
+import 'package:further_app_clone/screens/SearchScreen.dart';
 
 class BottomNav extends StatelessWidget {
   const BottomNav({Key? key});
@@ -8,8 +9,8 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      selectedItemColor: Colors.white,
+      iconSize: 30,
+      fixedColor: Colors.black,
       unselectedItemColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
@@ -31,11 +32,17 @@ class BottomNav extends StatelessWidget {
           label: "Discover",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: IconButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()));
+            },
+            icon: Icon(Icons.zoom_in),
+          ),
           label: "Search",
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.library_add),
+          icon: Icon(Icons.local_library),
           label: "Library",
         )
       ],
